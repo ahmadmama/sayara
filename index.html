@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; manifest-src 'self'; form-action 'none'; base-uri 'none'; object-src 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="color-scheme" content="light dark">
+<title>Sayara — Buy, sell & share cars</title>
+<meta name="description" content="Sayara is a friendly marketplace where everyone can sell their old car, find a new one, and save their favorites.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23FF5B2E'/%3E%3Cpath d='M12 40v-6c0-2 1-3 3-4l5-1 6-9c1-1 2-2 4-2h12c2 0 3 1 4 2l5 9 5 1c2 1 3 2 3 4v6z' fill='white'/%3E%3Ccircle cx='21' cy='42' r='6' fill='%2314171F'/%3E%3Ccircle cx='45' cy='42' r='6' fill='%2314171F'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="logo" aria-label="Sayara home">
+      <span class="logo-mark" id="logoMark"></span>Sayara
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#browse">Browse cars</a>
+      <a href="#how">How it works</a>
+      <a href="#sell">Sell</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle dark mode"></button>
+      <button class="icon-btn" id="favBtn" aria-label="Open favorites"><span id="heartIcon"></span><span class="badge" id="favCount" hidden>0</span></button>
+      <button class="btn btn-primary btn-sell" id="sellBtn"><span id="plusIcon"></span><span>Sell your car</span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="pill"><i>New</i> Buy, sell &amp; share — person to person</div>
+      <h1>Find a car you'll <em>love.</em> Pass on the one you've outgrown.</h1>
+      <p class="lead">Sayara is where everyone can list their old car in minutes, discover great ones nearby, and save favorites to share with family and friends.</p>
+      <form class="search" id="heroSearch" role="search">
+        <label><span>Brand</span><select id="hMake" aria-label="Brand"></select></label>
+        <label><span>Max price</span><select id="hPrice" aria-label="Max price"></select></label>
+        <button class="btn btn-primary" id="hGo" type="submit"></button>
+      </form>
+      <div class="trust">
+        <span id="t1"></span><span id="t2"></span><span id="t3"></span>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="blob"></div>
+      <div class="hero-car" id="heroCar"></div>
+      <div class="float-card fc1"><span class="dot" id="fc1i"></span><div><b id="liveCount">0 cars</b><small>listed right now</small></div></div>
+      <div class="float-card fc2"><span class="dot" id="fc2i"></span><div><b>Free to list</b><small>No fees, ever</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="browse">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><h2>Fresh on Sayara</h2><p>Real cars from real people. Tap the heart to save one.</p></div>
+    </div>
+    <div class="chips" id="bodyChips" role="group" aria-label="Body type"></div>
+    <div class="filters">
+      <label class="field grow"><span id="sIcon"></span><input id="q" type="search" placeholder="Search cars or cities" aria-label="Search"></label>
+      <label class="field"><select id="fMake" aria-label="Brand"></select></label>
+      <label class="field"><select id="fPrice" aria-label="Max price"></select></label>
+      <label class="field"><select id="fSort" aria-label="Sort">
+        <option value="new">Newest first</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option><option value="year">Year: newest</option><option value="km">Lowest mileage</option>
+      </select></label>
+    </div>
+    <p class="count" id="count" aria-live="polite"></p>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head"><div><h2>Simple as one, two, three</h2><p>No dealers, no middlemen. Just people.</p></div></div>
+    <div class="steps">
+      <div class="step"><h3>Post your car</h3><p>Add photos, a price and a few details. It takes about two minutes and it's completely free.</p></div>
+      <div class="step"><h3>Get discovered</h3><p>Buyers browse, filter and save your car to their favorites. Share the link anywhere you like.</p></div>
+      <div class="step"><h3>Talk &amp; hand over keys</h3><p>Buyers call or message you directly. You agree on a price and meet — you stay in control.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="sell">
+  <div class="wrap">
+    <div class="cta">
+      <div>
+        <h2>Got a car sitting in the driveway?</h2>
+        <p>Give it a second life. List it on Sayara today and let the right person find it.</p>
+        <button class="btn btn-primary" id="sellBtn2">List my car — it's free</button>
+      </div>
+      <div id="ctaArt"></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="logo foot-logo"><span class="logo-mark" id="logoMark2"></span>Sayara <span class="ar">سيارة</span></div>
+    <div>Always meet in a safe public place and check the car before you pay.</div>
+    <div>© <span id="yr"></span> Sayara</div>
+  </div>
+</footer>
+
+<!-- Detail -->
+<dialog id="dDetail" class="d-wide" aria-label="Car details"></dialog>
+
+<!-- Sell form -->
+<dialog id="dSell" class="d-form" aria-label="List your car">
+  <button class="x" type="button" data-close aria-label="Close" id="x1"></button>
+  <form id="sellForm" autocomplete="off">
+    <h2>List your car</h2>
+    <p>Tell people about it. You can delete your listing any time.</p>
+    <div class="fg">
+      <div class="f"><label for="fm">Brand</label><input id="fm" name="make" list="makes" required maxlength="30" placeholder="Toyota"></div>
+      <div class="f"><label for="fmo">Model</label><input id="fmo" name="model" required maxlength="40" placeholder="Corolla"></div>
+      <div class="f"><label for="fy">Year</label><input id="fy" name="year" type="number" min="1970" max="2027" required placeholder="2018"></div>
+      <div class="f"><label for="fp">Price (USD)</label><input id="fp" name="price" type="number" min="100" max="10000000" required placeholder="9500"></div>
+      <div class="f"><label for="fk">Mileage (km)</label><input id="fk" name="km" type="number" min="0" max="2000000" required placeholder="85000"></div>
+      <div class="f"><label for="fc">City</label><input id="fc" name="city" required maxlength="40" placeholder="Erbil"></div>
+      <div class="f"><label for="ff">Fuel</label><select id="ff" name="fuel"><option>Petrol</option><option>Diesel</option><option>Hybrid</option><option>Electric</option></select></div>
+      <div class="f"><label for="ft">Gearbox</label><select id="ft" name="trans"><option>Automatic</option><option>Manual</option></select></div>
+      <div class="f"><label for="fb">Body type</label><select id="fb" name="body"><option>Sedan</option><option>SUV</option><option>Hatchback</option><option>Pickup</option></select></div>
+      <div class="f"><label>Color</label><div class="swatches" id="swatches"></div></div>
+      <div class="f full"><label for="fd">Description</label><textarea id="fd" name="desc" maxlength="600" placeholder="Condition, service history, why you're selling…"></textarea></div>
+      <div class="f full"><label>Photos <small class="hint">(up to 4 — optional)</small></label>
+        <label class="drop" for="fphotos"><span id="upIcon"></span>Click to add photos</label>
+        <input id="fphotos" class="sr" type="file" accept="image/jpeg,image/png,image/webp" multiple>
+        <div class="prev" id="prev"></div></div>
+      <div class="f"><label for="fn">Your name</label><input id="fn" name="seller" required maxlength="40" placeholder="Your name"></div>
+      <div class="f"><label for="fph">Phone / WhatsApp</label><input id="fph" name="phone" type="tel" required maxlength="20" pattern="\+?[0-9][0-9 ()\-]{5,18}" title="Digits, spaces, + ( ) and - only" placeholder="+964 750 000 0000"></div>
+    </div>
+    <datalist id="makes"><option>Toyota<option>Hyundai<option>Kia<option>Nissan<option>Honda<option>BMW<option>Mercedes-Benz<option>Ford<option>Chevrolet<option>Tesla<option>Volkswagen<option>Mazda</datalist>
+    <div class="form-foot">
+      <small>Your phone number is shown to people who open your listing, so they can reach you.</small>
+      <button class="btn btn-primary" type="submit">Publish my car</button>
+    </div>
+  </form>
+</dialog>
+
+<!-- Favorites -->
+<dialog id="dFav" class="sheet" aria-label="Favorites">
+  <div class="sheet-h"><h2>Your favorites</h2><button class="x" type="button" data-close aria-label="Close" id="x2"></button></div>
+  <div class="fav-list" id="favList"></div>
+</dialog>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script src="assets/app.js" defer></script>
+</body>
+</html>
